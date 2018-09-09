@@ -19,6 +19,8 @@ class SendEmailJob implements ShouldQueue
     /*php artisan queue:work --timeout=30*/
     public $tries = 5;
 
+    public $timeout = 120;
+
     protected $email;
     /**
      * Create a new job instance.
