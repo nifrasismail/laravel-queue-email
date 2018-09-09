@@ -5,7 +5,7 @@ Route::get('/', function () {
 });
 
 Route::get('/sendEmail',function (){
-    $job = (new \App\Jobs\SendEmailJob())->delay(now()->addSeconds(5));
+    $job = (new \App\Jobs\SendEmailJob('nifrasismail@gmail.com'))->delay(now()->addSeconds(5));
     dispatch($job);
     return 'Email Sent';
 });
