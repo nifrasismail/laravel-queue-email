@@ -16,6 +16,7 @@ class SendEmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    /*php artisan queue:work --timeout=30*/
     public $tries = 5;
 
     protected $email;
