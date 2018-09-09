@@ -1,4 +1,4 @@
-#Laravel - Queue
+# Laravel - Queue
 In this sample is for sending email using queue.
 
 1. First we need to create a basic skelton poject of laravel. I'm using laravel 5.7
