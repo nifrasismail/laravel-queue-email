@@ -2,12 +2,14 @@
 
 namespace App\Jobs;
 
+use App\Email;
 use App\Mail\SendEmailMailable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class SendEmailJob implements ShouldQueue
@@ -21,7 +23,7 @@ class SendEmailJob implements ShouldQueue
      */
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -31,7 +33,10 @@ class SendEmailJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to('nifrasismail@gmail.com')->send(new SendEmailMailable());
-
+        $email = new Email;
+        $email->email = "nifrasismail@gmail.com";
+        $email->save();
+        Log::info($email->email);
+        Mail::to($email->email)->send(new SendEmailMailable());
     }
 }
